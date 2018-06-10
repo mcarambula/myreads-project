@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BooksGrid from './BooksGrid';
-
+import SortBy from './SortBy';
 
 class BookShelf extends Component {
+    renderHowMany = (length) => {
+        if (length > 1) {
+            return <span className="filtered-books-length">{length} books</span>
+        } else if (length === 1) {
+            return <span className="filtered-books-length">{length} book</span>
+        }
+        return null;
+    }
     renderBooks(books, shelfs) {
         return (
             <div>
@@ -14,7 +22,14 @@ class BookShelf extends Component {
                     return (
                         <div className="bookshelf" key={i}>
                           <h2 className={`bookshelf-title ${shelf.id}`}>{shelf.label}
-                              <span className="filtered-books-length">{length} books</span>
+                              {this.renderHowMany(length)}
+                              {
+                                  length > 1 &&  <SortBy
+                                                       onSort={this.props.onSort}
+                                                       shelf={shelf.id}
+                                                   />
+                              }
+
                           </h2>
                           {
                               (length > 0) ?

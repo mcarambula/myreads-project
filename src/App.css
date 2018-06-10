@@ -16,6 +16,12 @@ body, .app {
     overflow: hidden;
     position: relative;
 }
+.sort-by {
+    float: right;
+    font-size: 12px;
+    line-height: 25px;
+    margin-right: 20px;
+}
 .book-status {
     position: absolute;
     top: 10px;
