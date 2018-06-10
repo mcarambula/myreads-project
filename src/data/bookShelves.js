@@ -16,4 +16,10 @@ const bookShelves = [
         }
 ];
 
-export default bookShelves;
+const coverShelves = {
+    "currentlyReading" : "Reading",
+    "wantToRead": "Want to Read",
+    "read" : "Read"
+}
+
+export { bookShelves, coverShelves };

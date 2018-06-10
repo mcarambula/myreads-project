@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SelectInput from './SelectInput';
 import Loader from './Loader';
+import { coverShelves }  from './data/bookShelves';
 
 class Book extends Component {
     getAuthors(book) {
@@ -23,7 +24,9 @@ class Book extends Component {
         return (<div
                 className="book-cover"
                 style={{ width: 128, height: 193, backgroundImage: image }}>
-                { this.props.showShelf && <div className={`book-status ${book.shelf}`}>{book.shelf}</div> }
+                { this.props.showShelf
+                    && book.shelf && book.shelf !== 'none'
+                    && <div className={`book-status ${book.shelf}`}>{coverShelves[book.shelf]}</div> }
                 </div>);
     }
     updateBookShelf = (shelf) => {

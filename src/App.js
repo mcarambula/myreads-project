@@ -2,38 +2,24 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
-import bookShelves  from './data/bookShelves';
+import { bookShelves }  from './data/bookShelves';
 import BookShelf from './BookShelf';
 import Search from './Search';
 
 class BooksApp extends React.Component {
     state = {
          books: [],
-         searchedBooks: []
+         searchedBooks: [],
+         loading: true
     }
     componentDidMount() {
         BooksAPI.getAll()
         .then((books) => {
-            books.sort((a,b) => this.sortBy(a,b));
             this.setState(() => ({
               books,
               loading: false
             }));
         })
-    }
-    sortBooks = (sortBy, shelf) => {
-        let books = [...this.state.books];
-         books.sort((a,b) => this.sortBy(a,b, sortBy, shelf));
-        this.setState({
-            books,
-            sortBy
-        })
-    }
-    sortBy = (a,b, sort, shelf) => {
-        const sortBy = (sort) ? sort : 'title';
-        if(a[sortBy] < b[sortBy] && a.shelf === shelf && b.shelf === shelf) return -1;
-        if(a[sortBy] > b[sortBy] && a.shelf === shelf && b.shelf === shelf) return 1;
-        return 0;
     }
     updateBookShelf = (book, shelf) => {
         const books = [...this.state.books];
@@ -69,6 +55,7 @@ class BooksApp extends React.Component {
                         shelfs={bookShelves}
                         updateBookShelf={this.updateBookShelf}
                         onSort={this.sortBooks}
+                        loading={this.state.loading}
                     />
                 } />
                 <Route path="/search" render={()=>  (

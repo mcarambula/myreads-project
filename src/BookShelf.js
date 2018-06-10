@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BooksGrid from './BooksGrid';
-import SortBy from './SortBy';
 
 class BookShelf extends Component {
     renderHowMany = (length) => {
@@ -23,21 +22,16 @@ class BookShelf extends Component {
                         <div className="bookshelf" key={i}>
                           <h2 className={`bookshelf-title ${shelf.id}`}>{shelf.label}
                               {this.renderHowMany(length)}
-                              {
-                                  length > 1 &&  <SortBy
-                                                       onSort={this.props.onSort}
-                                                       shelf={shelf.id}
-                                                   />
-                              }
-
                           </h2>
-                          {
-                              (length > 0) ?
+                          {this.props.loading ?
+                              <div>Loading ...</div>
+                              :
+                              ((length > 0) ?
                                <BooksGrid books={filteredBooks} updateBookShelf={this.props.updateBookShelf}/>
                                :
                               <p className="no-books"> No books </p>
+                              )
                           }
-
                         </div>
                     )
                 })
