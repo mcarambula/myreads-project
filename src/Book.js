@@ -23,7 +23,7 @@ class Book extends Component {
         return (<div
                 className="book-cover"
                 style={{ width: 128, height: 193, backgroundImage: image }}>
-                { this.props.showShelf && <div className={`book-status ${book.shelf}`}></div> }
+                { this.props.showShelf && <div className={`book-status ${book.shelf}`}>{book.shelf}</div> }
                 </div>);
     }
     updateBookShelf = (shelf) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Book from './Book';
+import BooksGrid from './BooksGrid';
+
 
 class BookShelf extends Component {
     renderBooks(books, shelfs) {
@@ -9,18 +10,19 @@ class BookShelf extends Component {
             {
                 shelfs.map((shelf, i) =>{
                     const filteredBooks = books.filter(book => book.shelf === shelf.id);
+                    const length = filteredBooks.length;
                     return (
                         <div className="bookshelf" key={i}>
                           <h2 className={`bookshelf-title ${shelf.id}`}>{shelf.label}
-                              <span className="filtered-books-length">{filteredBooks.length}</span>
+                              <span className="filtered-books-length">{length} books</span>
                           </h2>
-                          <div className="bookshelf-books">
-                            <ol className="books-grid">
-                                {filteredBooks.map((book, j) =>{
-                                    return <Book updateBookShelf={this.props.updateBookShelf} book={book} key={j} />
-                                })}
-                            </ol>
-                          </div>
+                          {
+                              (length > 0) ?
+                               <BooksGrid books={filteredBooks} updateBookShelf={this.props.updateBookShelf}/>
+                               :
+                              <p className="no-books"> No books </p>
+                          }
+
                         </div>
                     )
                 })

@@ -7,53 +7,65 @@ body {
 body, .app {
   background: #e8e8e8;
 }
+.no-books{
+    text-align: center;
+    color: #808080ed;
+    padding: 60px 0px;
+}
 .book-cover{
     overflow: hidden;
     position: relative;
 }
 .book-status {
     position: absolute;
-    top: 5px;
-    transform: rotate(45deg);
-    right: -25px;
-    width: 80px;
+    top: 10px;
+    left: 0;
+    width: 104px;
     height: 20px;
+    font-size: 9px;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    text-transform: uppercase;
 }
 .book-status.read {
-    background: red;
+    background:#912d4a;
 }
 .book-status.wantToRead {
-    background: green;
+    background: #4a2d55;
 }
 .book-status.currentlyReading {
-    background: gray;
+    background: #155143;
 }
 
 .bookshelf-title.read{
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #912d4a;
 }
 .bookshelf-title.wantToRead{
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #4a2d55;
 }
 .bookshelf-title.currentlyReading{
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #155143;
 }
 
 
 
 /* main page */
 
-.list-books-title {
-    padding: 150px 0;
-    background: #6BBAA7;
+.list-books-title, .search-books-title {
+    padding: 40px 0 100px;
+    background: #6cbba8;
     text-align: center;
+}
+.search-books-title {
+    padding: 60px 0;
 }
 .list-books-title h1 {
     font-weight: 400;
     margin: 0;
     color: white;
 }
-.list-books-content {
+.list-books-content, .search-books-content {
     flex: 1 1;
     max-width: 1024px;
     margin: 0 auto;
@@ -61,7 +73,7 @@ body, .app {
     top: -80px;
     background: white;
     padding: 5px 10px;
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0 0 10px #474747;
     width: 90%;
 }
 .bookshelf {
@@ -95,7 +107,7 @@ span.filtered-books-length {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #E27D60;
+  background: #a5494d;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -117,7 +129,7 @@ span.filtered-books-length {
 }
 .search-books-input-wrapper {
   flex: 1;
-  border-bottom: 1px solid #E27D60;
+  border-bottom: 1px solid #a5494d;
   margin-right: 50px;
   position: relative;
 }
@@ -127,6 +139,9 @@ span.filtered-books-length {
   font-size: 1.25em;
   border: none;
   outline: none;
+}
+.search-books{
+    min-height: 400px;
 }
 
 .close-search {
@@ -208,7 +223,7 @@ span.filtered-books-length {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #6C648B;
+  background: #393939;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
