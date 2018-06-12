@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import * as BooksAPI from '../../BooksAPI';
+import BooksGrid from '../BooksGrid/BooksGrid';
 import SearchInput from './SearchInput';
-import BooksGrid from './BooksGrid';
-import * as BooksAPI from './BooksAPI';
 
 class Search extends Component {
     state = {

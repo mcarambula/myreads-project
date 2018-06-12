@@ -1,18 +1,19 @@
 const bookShelves = [
         {
             id: 'currentlyReading',
-            label: 'Currently Reading',
-            title: 'Reading'
+            label: 'Currently Reading'
         },
         {
             id: 'wantToRead',
-            label: 'Want To Read',
-            title: 'Want to read'
+            label: 'Want To Read'
         },
         {
             id: 'read',
-            label: 'Read',
-            title: 'Read'
+            label: 'Read'
+        },
+        {
+            id: 'none',
+            label: 'None'
         }
 ];
 

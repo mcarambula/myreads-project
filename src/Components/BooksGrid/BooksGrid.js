@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Book from './Book';
+import Book from '../Book/Book';
 
 const BooksGrid = (props) => (
     <div className="bookshelf-books">
@@ -33,6 +33,5 @@ BooksGrid.defaultProps = {
     books: [],
     showShelf: false
 };
-
 
 export default BooksGrid;

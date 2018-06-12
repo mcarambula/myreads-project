@@ -1,0 +1,69 @@
+.book {
+  width: 140px;
+}
+.book-cover {
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: #eee;
+}
+.book-cover-title {
+  padding: 20px 10px 0;
+  text-align: center;
+  font-size: 0.8em;
+}
+.sort-by {
+    float: right;
+    font-size: 12px;
+    line-height: 25px;
+    margin-right: 20px;
+}
+.book-authors, .book-title {
+  font-size: 0.8em;
+}
+.book-title {
+  margin-top: 10px;
+}
+.book-authors {
+  color: #999;
+}
+.book-status {
+    border-left: 6px solid red;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    font-size: 9.5px;
+    color: black;
+    text-align: center;
+    line-height: 20px;
+    text-transform: uppercase;
+    background: #e8e8e8;
+    font-weight: bold;
+}
+.book-status.read {
+    border-left: 30px solid #912d4a;
+}
+.book-status.wantToRead {
+    border-left: 30px solid #4a2d55;
+}
+.book-status.currentlyReading {
+    border-left: 30px solid #155143;
+}
+.book-top {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bookshelf-title.read{
+    border-left: 10px solid #912d4a;
+}
+.bookshelf-title.wantToRead{
+    border-left: 10px solid #4a2d55;
+}
+.bookshelf-title.currentlyReading{
+    border-left: 10px solid #155143;
+}
