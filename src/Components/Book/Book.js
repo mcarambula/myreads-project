@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SelectInput from '../SelectInput/SelectInput';
+import SelectInput from './components/SelectInput/SelectInput';
 import Loader from '../Loader/Loader';
 import { coverShelves }  from '../../data/bookShelves';
 import './Book.css';
 
 class Book extends Component {
     static defaultProps = {
-        showShelf: true
+        showShelf: false
     }
     static propTypes = {
         book: PropTypes.object.isRequired,
@@ -38,7 +38,8 @@ class Book extends Component {
         return (<div
                 className='book-cover'
                 style={{ width: 128, height: 193, backgroundImage: image }}>
-                { book.shelf
+                { this.props.showShelf 
+                    && book.shelf
                     && book.shelf !== 'none'
                     && <div className={`book-status ${book.shelf}`}>{coverShelves[book.shelf]}</div> }
                 </div>);

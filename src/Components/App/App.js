@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import * as BooksAPI from '../../BooksAPI';
+import * as BooksAPI from '../../api/BooksAPI';
 import { bookShelves }  from '../../data/bookShelves';
 import BookShelf from '../BookShelf/BookShelf';
 import Search from '../Search/Search';

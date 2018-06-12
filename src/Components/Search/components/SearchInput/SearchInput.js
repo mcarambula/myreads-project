@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import './SearchInput.css';
 
 class Search extends Component {
   state = {
@@ -20,7 +21,7 @@ class Search extends Component {
   }
   render() {
     return (
-        <form onSubmit={this.handleSubmit} className="search-books-form">
+        <form onSubmit={this.handleSubmit} className="search-books-form" >
             <div className="search-books-input-wrapper">
                 <input
                     type="text"

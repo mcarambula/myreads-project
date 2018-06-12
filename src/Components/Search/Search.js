@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import * as BooksAPI from '../../BooksAPI';
+import * as BooksAPI from '../../api/BooksAPI';
 import BooksGrid from '../BooksGrid/BooksGrid';
-import SearchInput from './SearchInput';
+import SearchInput from './components/SearchInput/SearchInput';
+import './Search.css';
 
 class Search extends Component {
     state = {
@@ -10,12 +11,12 @@ class Search extends Component {
         loading: false
     }
     onSearchBooks = (query) => {
-        this.setState(() => ({loading: true}));
+        this.setState(() => ({ loading: true }));
         BooksAPI.search(query)
         .then((searchedBooks) => {
             let updatedBooks = [];
             if (!searchedBooks.error) {
-                /* Adding the shelf value on the books */
+                /* Adding the shelf value on the books returned on the search */
                 updatedBooks = searchedBooks.map(book => {
                     /* Find the book */
                     const bAux = this.props.booksOnShelf.filter(b => b.id === book.id)[0] || {};
@@ -58,6 +59,7 @@ class Search extends Component {
             searchedBooks[index].isUpdating = false;
             this.setState({searchedBooks});
         })
+        // Move the current book to the app state
         this.props.moveBook(book, shelf);
     }
     render() {
