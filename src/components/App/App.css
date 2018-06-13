@@ -7,10 +7,11 @@ body {
 body, .app {
   background: #e8e8e8;
 }
-.no-books{
+.no-books {
     text-align: center;
     color: #808080ed;
     padding: 60px 0px;
+    font-size: 14px;
 }
 .sort-by {
     float: right;
