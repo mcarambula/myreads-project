@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../../api/BooksAPI';
 import BooksGrid from '../BooksGrid/BooksGrid';
+import Loader from '../Loader/Loader';
 import SearchInput from './components/SearchInput/SearchInput';
 import './Search.css';
 
@@ -76,7 +77,10 @@ class Search extends Component {
                         />
                       </div>
                       {this.state.loading  ?
-                          <div>Loading.. </div>
+                          <div className="loading">
+                              <Loader section="search"/>
+                              Loading books..
+                          </div>
                           :
                           <BooksGrid
                               books={this.state.searchedBooks}

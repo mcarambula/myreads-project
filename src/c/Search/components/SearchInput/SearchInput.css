@@ -1,25 +1,25 @@
 .search-books-input-wrapper {
-  flex: 1;
-  border-bottom: 1px solid #a5494d;
-  margin-right: 50px;
-  position: relative;
+    flex: 1;
+    position: relative;
 }
 .search-books-form {
     width: 100%;
 }
 .search-books-input-wrapper input {
-  width: 100%;
-  padding: 15px 10px;
-  font-size: 1.25em;
-  border: none;
-  outline: none;
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    line-height: 23px;
 }
 .clean-search {
     display: block;
-    top: 22px;
+    top: 19px;
     width: 30px;
     height: 17px;
-    background: white;
+    background: transparent;
     background-image: url('../../../../icons/close.svg');
     background-position: center;
     background-repeat: no-repeat;

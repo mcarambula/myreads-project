@@ -4,7 +4,7 @@
 .bookshelf-title {
     background: #e8e8e8;
     padding: 10px;
-    font-size: 18px;
+    font-size: 14px;
     color: #4f4f4f;
 }
 .bookshelf-books {
@@ -12,9 +12,9 @@
 }
 span.books-length {
     float: right;
-    font-size: 12px;
+    font-size: 10px;
     color: gray;
-    line-height: 25px;
+    line-height: 22px;
 }
 .open-search {
     position: fixed;

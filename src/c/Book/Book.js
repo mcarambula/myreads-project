@@ -38,7 +38,7 @@ class Book extends Component {
         return (<div
                 className='book-cover'
                 style={{ width: 128, height: 193, backgroundImage: image }}>
-                { this.props.showShelf 
+                { this.props.showShelf
                     && book.shelf
                     && book.shelf !== 'none'
                     && <div className={`book-status ${book.shelf}`}>{coverShelves[book.shelf]}</div> }
