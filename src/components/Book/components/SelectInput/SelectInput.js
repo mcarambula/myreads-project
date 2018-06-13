@@ -25,7 +25,7 @@ class SelectInput extends Component {
     }
     render() {
         return (
-            <div className='book-shelf-changer'>
+            <div className={`book-shelf-changer ${this.props.currentShelf}`}>
                 <select
                     value={ this.state.value }
                     onChange={ this.handleChange }
