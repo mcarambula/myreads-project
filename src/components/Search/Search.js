@@ -65,30 +65,25 @@ class Search extends Component {
     }
     render() {
         return (
-            <div className="search-books-container">
-                <div className="search-books-title"></div>
-                <div className="search-books-content">
-                    <div className="search-books">
-                      <div className="search-books-bar">
+            <div className="search-books">
+                    <div className="search-books-bar">
                         <Link className="close-search" to="/">Close</Link>
                         <SearchInput
-                            onSearchBooks={this.onSearchBooks}
-                            cleanSearch={this.cleanSearch}
+                        onSearchBooks={this.onSearchBooks}
+                        cleanSearch={this.cleanSearch}
                         />
-                      </div>
-                      {this.state.loading  ?
-                          <div className="loading">
-                              <Loader section="search"/>
-                              Loading books..
-                          </div>
-                          :
-                          <BooksGrid
-                              books={this.state.searchedBooks}
-                              updateBookShelf={this.updateBook}
-                              showShelf={true} />
-                      }
                     </div>
-                </div>
+                    {this.state.loading  ?
+                    <div className="loading">
+                      <Loader section="search"/>
+                      Loading books..
+                    </div>
+                    :
+                    <BooksGrid
+                      books={this.state.searchedBooks}
+                      updateBookShelf={this.updateBook}
+                      showShelf={true} />
+                    }
             </div>
         )
     }

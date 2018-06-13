@@ -49,17 +49,12 @@ class BookShelf extends Component {
     render() {
         const { books, shelfs } = this.props;
         return (
-            <div className='list-books'>
-                <div className='list-books-title'>
-                    <h1>MyReads</h1>
+            <div>
+                {this.renderBooks(books, shelfs)}
+                <div className='open-search'>
+                    <Link to='/search'>Add a book</Link>
                 </div>
-                <div className='list-books-content'>
-                    {this.renderBooks(books, shelfs)}
-                    <div className='open-search'>
-                        <Link to='/search'>Add a book</Link>
-                    </div>
-                 </div>
-            </div>
+             </div>
         )
     }
 

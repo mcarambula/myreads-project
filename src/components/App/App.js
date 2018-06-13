@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import * as BooksAPI from '../../api/BooksAPI';
 import { bookShelves }  from '../../data/bookShelves';
 import BookShelf from '../BookShelf/BookShelf';
+import BookDetail from '../BookDetail/BookDetail';
 import Search from '../Search/Search';
 import './App.css';
 
@@ -66,13 +67,23 @@ class BooksApp extends React.Component {
                         updateBookShelf={this.updateBookShelf}
                         moveBook={this.moveBook} />
                 )} />
+                <Route path="/detail" render={(history)=>  (
+                      <BookDetail book={history.location.state.book}/>
+                )} />
             </Switch>
         )
     }
     render() {
         return (
           <div className="app">
-              {this.getRoute(this.state)}
+              <div className='list-books'>
+                  <div className='list-books-title'>
+                      <h1>MyReads</h1>
+                  </div>
+                  <div className='list-books-content'>
+                      {this.getRoute(this.state)}
+                  </div>
+              </div>
           </div>
       )
   }
