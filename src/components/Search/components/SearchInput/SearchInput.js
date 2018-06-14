@@ -23,18 +23,16 @@ class Search extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="search-books-form" >
-                <div className="search-books-input-wrapper">
-                    <input
-                        type="text"
-                        value={this.state.search}
-                        placeholder="Search by title or author"
-                        onChange={(e) => this.handleInputChange(e)}
-                        ref={(input) => { this.searchInput = input; }}
-                    />
-                    {this.state.search !== '' && <div className="clean-search" onClick={this.cleanInput}></div>}
-                </div>
-            </form>
+            <div className="search-books-input-wrapper">
+                <input
+                    type="text"
+                    value={this.state.search}
+                    placeholder="Search by title or author"
+                    onChange={(e) => this.handleInputChange(e)}
+                    ref={(input) => { this.searchInput = input; }}
+                />
+                {this.state.search !== '' && <div className="clean-search" onClick={this.cleanInput}></div>}
+            </div>
         );
     }
 }

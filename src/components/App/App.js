@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import * as BooksAPI from '../../api/BooksAPI';
 import { bookShelves }  from '../../data/bookShelves';
 import BookShelf from '../BookShelf/BookShelf';
-import BookDetail from '../BookDetail/BookDetail';
 import Search from '../Search/Search';
 import './App.css';
 
@@ -50,25 +49,24 @@ class BooksApp extends React.Component {
     getRoute = (state) => {
         return (
             <Switch>
-                <Route exact path="/" render={()=>
+                <Route exact path="/" render={({history})=>
                     <BookShelf
                         books={state.books}
                         shelfs={bookShelves}
                         updateBookShelf={this.updateBookShelf}
                         onSort={this.sortBooks}
                         loading={this.state.loading}
+                        history={history}
                     />
                 } />
-                <Route path="/search" render={()=>  (
+                <Route path="/search" render={({history})=>  (
                     <Search
                         onSearchBooks={this.onSearchBooks}
                         shelfs={bookShelves}
                         booksOnShelf={state.books}
                         updateBookShelf={this.updateBookShelf}
-                        moveBook={this.moveBook} />
-                )} />
-                <Route path="/detail" render={(history)=>  (
-                      <BookDetail book={history.location.state.book}/>
+                        moveBook={this.moveBook}
+                        history={history} />
                 )} />
             </Switch>
         )
