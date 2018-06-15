@@ -75,14 +75,14 @@ class Search extends Component {
 				searchedBooks[index].shelf = shelf;
 				searchedBooks[index].isUpdating = false;
 				this.setState({ searchedBooks });
+				// Move the current book to the app state
+				this.props.moveBook(book, shelf);
 			})
 			.catch(error => {
 				/* Show an error */
 				searchedBooks[index].isUpdating = false;
 				this.setState({ searchedBooks });
 			});
-		// Move the current book to the app state
-		this.props.moveBook(book, shelf);
 	}
 	render() {
 		return (
