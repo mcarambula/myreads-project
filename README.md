@@ -11,7 +11,7 @@ Check out the project's "master" branch and install the latest version of [Node]
 
 ### Step 2:
 
-After successfully finish the installation, cd into your project directory and run the command "npm install" if you installed Node or "yarn start" if you choose Yarn. This will take a while for your first install as it will download all the project dependencies.
+After successfully finish the installation, cd into your project directory and run the command "npm install" if you installed Node or "yarn start" if you chosen Yarn. This will take a while for your first install as it will download all the project dependencies.
 
 ```
 cd /project-marion
