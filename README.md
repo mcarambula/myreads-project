@@ -2,12 +2,12 @@
 
 This repository contains my implementation of MyReads app (first assessment project for the [Udacity React Nanodegree Program](https://www.udacity.com/course/react-nanodegree--nd019)).
 
-This project is a bookshelf app that allows user to categorize books they are currently reading, want to read or they have read.
+This project is a bookshelf app that allows users to categorize books they are currently reading, want to read or they have read.
 
 ## Getting started
 
 ### Step 1:
-Check out the project's "master" branch and install the latest version of [Node](https://nodejs.org/) or Yarn .
+Check out the project's "master" branch and install the latest version of [Node](https://nodejs.org/) or [Yarn](https://yarnpkg.com/en/docs/install) .
 
 ### Step 2:
 
