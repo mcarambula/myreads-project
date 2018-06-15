@@ -5,7 +5,7 @@ import './SelectInput.css';
 
 class SelectInput extends Component {
 	state = {
-		value: this.props.currentShelf
+		value: this.props.currentShelf || 'none'
 	}
 	static defaultProps = {
 		isUpdating: false,
