@@ -1,43 +1,46 @@
-html, body, .root {
-  height: 100%;
+html,
+body,
+.root {
+	height: 100%;
 }
 body {
-  line-height: 1.5;
+	line-height: 1.5;
 }
-body, .app {
-  background: #e8e8e8;
+body,
+.app {
+	background: #e8e8e8;
 }
 .no-books {
-    text-align: center;
-    color: #808080ed;
-    padding: 60px 0px;
-    font-size: 14px;
+	text-align: center;
+	color: #808080ed;
+	padding: 60px 0px;
+	font-size: 14px;
 }
 .sort-by {
-    float: right;
-    font-size: 12px;
-    line-height: 25px;
-    margin-right: 20px;
+	float: right;
+	font-size: 12px;
+	line-height: 25px;
+	margin-right: 20px;
 }
 /* main page */
 .list-books-title {
-    padding: 40px 0 100px;
-    background: #6cbba8;
-    text-align: center;
+	padding: 40px 0 100px;
+	background: #6cbba8;
+	text-align: center;
 }
 .list-books-title h1 {
-    font-weight: 400;
-    margin: 0;
-    color: white;
+	font-weight: 400;
+	margin: 0;
+	color: white;
 }
 .list-books-content {
-    flex: 1 1;
-    max-width: 1024px;
-    margin: 0 auto;
-    position: relative;
-    top: -80px;
-    background: white;
-    padding: 5px 10px;
-    box-shadow: 0 0 10px #474747;
-    width: 90%;
+	flex: 1 1;
+	max-width: 1024px;
+	margin: 0 auto;
+	position: relative;
+	top: -80px;
+	background: white;
+	padding: 5px 10px;
+	box-shadow: 0 0 10px #474747;
+	width: 90%;
 }

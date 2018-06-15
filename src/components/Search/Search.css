@@ -1,29 +1,30 @@
 .search-books-bar {
-    width: 100%;
-    z-index: 5;
-    display: flex;
-    background: #e8e8e8;
-    border-radius: 5px;
-    margin-top: 5px;
+	width: 100%;
+	z-index: 5;
+	display: flex;
+	background: #e8e8e8;
+	border-radius: 5px;
+	margin-top: 5px;
 }
-.search-books-results, .wait {
-    padding: 80px 10px 20px;
+.search-books-results,
+.wait {
+	padding: 80px 10px 20px;
 }
 .close-search {
-    display: block;
-    top: 20px;
-    left: 15px;
-    width: 50px;
-    height: 53px;
-    background: transparent;
-    background-image: url('../../icons/arrow-back.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 28px;
-    font-size: 0;
+	display: block;
+	top: 20px;
+	left: 15px;
+	width: 50px;
+	height: 53px;
+	background: transparent;
+	background-image: url('../../icons/arrow-back.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 28px;
+	font-size: 0;
 }
 .loading {
-    text-align: center;
-    color: #808080ed;
-    padding: 60px 0px;
+	text-align: center;
+	color: #808080ed;
+	padding: 60px 0px;
 }
