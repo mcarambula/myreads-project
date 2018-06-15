@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import BooksGrid from '../BooksGrid/BooksGrid';
 import './BookShelf.css';
 
 class BookShelf extends Component {
+	static defaultProps = {
+		books: [],
+		shelves: [],
+		updateBookShelf: () => {},
+		moveBook: () => {},
+		loading: false
+	}
+	static propTypes = {
+		books: PropTypes.array.isRequired,
+		shelves: PropTypes.array.isRequired,
+		updateBookShelf: PropTypes.func.isRequired,
+		moveBook: PropTypes.func.isRequired,
+		loading: PropTypes.bool
+	}
 	renderHowMany = length => {
 		if (length > 1) {
 			return <span className="books-length">{length} books</span>;
@@ -13,10 +28,10 @@ class BookShelf extends Component {
 		}
 		return null;
 	}
-	renderBooks(books, shelfs) {
+	renderBooks(books, shelves) {
 		return (
 			<div>
-				{shelfs.map((shelf, i) => {
+				{shelves.map((shelf, i) => {
 					if (shelf.id !== 'none') {
 						const filteredBooks = books.filter(
 							book => book.shelf === shelf.id
@@ -52,10 +67,10 @@ class BookShelf extends Component {
 		);
 	}
 	render() {
-		const { books, shelfs } = this.props;
+		const { books, shelves } = this.props;
 		return (
 			<div>
-				{this.renderBooks(books, shelfs)}
+				{this.renderBooks(books, shelves)}
 				<div className="open-search">
 					<Link to="/search">Add a book</Link>
 				</div>

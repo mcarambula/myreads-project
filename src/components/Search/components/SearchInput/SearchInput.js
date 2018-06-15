@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './SearchInput.css';
 
 class Search extends Component {
 	state = {
 		search: ''
+	}
+	static defaultProps = {
+		onSearchBooks: () => {},
+		cleanSearch: () => {}
+	}
+	static propTypes = {
+		onSearchBooks: PropTypes.func.isRequired,
+		cleanSearch: PropTypes.func.isRequired
 	}
 	componentDidMount() {
 		this.searchInput.focus();

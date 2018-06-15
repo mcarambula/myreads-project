@@ -54,27 +54,22 @@ class BooksApp extends React.Component {
 				<Route
 					exact
 					path="/"
-					render={({ history }) => (
+					render={() => (
 						<BookShelf
 							books={state.books}
-							shelfs={bookShelves}
+							shelves={bookShelves}
 							updateBookShelf={this.updateBookShelf}
-							onSort={this.sortBooks}
 							loading={this.state.loading}
-							history={history}
 						/>
 					)}
 				/>
 				<Route
 					path="/search"
-					render={({ history }) => (
+					render={() => (
 						<Search
-							onSearchBooks={this.onSearchBooks}
-							shelfs={bookShelves}
 							booksOnShelf={state.books}
 							updateBookShelf={this.updateBookShelf}
 							moveBook={this.moveBook}
-							history={history}
 						/>
 					)}
 				/>

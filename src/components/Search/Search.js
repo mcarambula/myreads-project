@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../../api/BooksAPI';
 import BooksGrid from '../BooksGrid/BooksGrid';
@@ -11,6 +12,21 @@ class Search extends Component {
 		searchedBooks: [],
 		loading: false
 	}
+	static defaultProps = {
+		booksOnShelf: [],
+		updateBookShelf: () => {},
+		moveBook: () => {}
+	}
+	static propTypes = {
+		booksOnShelf: PropTypes.array.isRequired,
+		updateBookShelf: PropTypes.func.isRequired,
+		moveBook: PropTypes.func.isRequired,
+	}
+	/*
+		This function will search the book given the query
+		and will check on the initials books to see if
+		they already are in a specific shelf
+	*/
 	onSearchBooks = query => {
 		this.setState(() => ({ loading: true }));
 		BooksAPI.search(query)
@@ -41,6 +57,7 @@ class Search extends Component {
 				}));
 			});
 	}
+	/* Clean the search after user interaction */
 	cleanSearch = () => {
 		this.setState(() => ({
 			searchedBooks: []
@@ -52,7 +69,7 @@ class Search extends Component {
 		/* Giving son UI response to the user about the updating process  */
 		searchedBooks[index].isUpdating = true;
 		this.setState({ searchedBooks });
-
+		/* Update the book with the API */
 		BooksAPI.update(book, shelf)
 			.then(response => {
 				searchedBooks[index].shelf = shelf;

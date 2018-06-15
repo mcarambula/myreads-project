@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as BookUtils from '../../../../utils/bookUtils';
 import './BookModal.css';
 
@@ -36,6 +37,16 @@ const BookModal = props => {
 			</div>
 		</div>
 	);
+}
+
+BookModal.propTypes = {
+	book: PropTypes.object.isRequired,
+	closeModal: PropTypes.func.isRequired
+};
+
+BookModal.defaultProps = {
+	book: {},
+	closeModal: () => {}
 };
 
 export default BookModal;
