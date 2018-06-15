@@ -35,7 +35,6 @@ class Book extends Component {
 	}
 	render() {
 		const { book } = this.props;
-		console.log(book.authors);
 		return (
 			<li>
 				<div className='book'>

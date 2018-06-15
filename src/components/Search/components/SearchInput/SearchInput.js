@@ -19,9 +19,10 @@ class Search extends Component {
 	}
 	handleInputChange = e => {
 		const search = e.target.value;
-		this.setState({ search });
 		const cleaned = search.trim();
+		this.setState({ search });
 		if (cleaned === '') {
+			this.props.cleanSearch('');
 			return;
 		}
 		this.props.onSearchBooks(cleaned);
