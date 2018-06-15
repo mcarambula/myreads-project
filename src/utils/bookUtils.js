@@ -9,13 +9,15 @@ const truncate = (string, length = 25) => {
 
 /* Checks if the book has a author node and renders all the authors if it does */
 export function getAuthors(book, wantTruncate = true) {
-	return book.authors && book.authors.length > 0 ?
-			(
-				wantTruncate ?
-					<div className="book-authors">{truncate(book.authors.join(', '))}</div>
-				:
-					<div className="book-authors">{book.authors.join(', ')}.</div>
-			) : null;
+	return book.authors && book.authors.length > 0 ? (
+		wantTruncate ? (
+			<div className="book-authors">
+				{truncate(book.authors.join(', '))}
+			</div>
+		) : (
+			<div className="book-authors">{book.authors.join(', ')}.</div>
+		)
+	) : null;
 }
 /* Checks if the book has a cover image set and renders the image if it does.
    If it doesn't it will render a white square

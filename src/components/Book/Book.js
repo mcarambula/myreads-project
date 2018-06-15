@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import SelectInput from './components/SelectInput/SelectInput';
 import Loader from '../Loader/Loader';
 import BookModal from './components/BookModal/BookModal';
-
-import { coverShelves } from '../../data/bookShelves';
 import * as BookUtils from '../../utils/bookUtils';
 import './Book.css';
 
