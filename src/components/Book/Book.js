@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SelectInput from './components/SelectInput/SelectInput';
 import Loader from '../Loader/Loader';
+import BookModal from './components/BookModal/BookModal';
+
 import { coverShelves } from '../../data/bookShelves';
 import * as BookUtils from '../../utils/bookUtils';
 import './Book.css';
@@ -22,25 +24,27 @@ class Book extends Component {
 	updateBookShelf = shelf => {
 		this.props.updateBookShelf(this.props.book, shelf);
 	}
+	/* Allows to show more information about the book */
 	showMore = e => {
 		e.preventDefault();
 		this.setState({ showMore: true });
 		return true;
 	}
-	closeModal = e => {
-		if (this.state.showMore && e.target.className === 'book-modal') {
-			this.setState({ showMore: false });
-		}
+	/* Allows to close the modal with more information about the book */
+	closeModal = () => {
+		this.setState({ showMore: false });
 		return true;
 	}
 	render() {
 		const { book } = this.props;
-		console.log(book);
-		const style = this.state.showMore ? ' modal-open' : '';
 		return (
 			<li>
-				<div className={`book${style}`}>
+				<div className='book'>
 					<div className="book-top">
+						{ /*
+							Show a loader inside the book div to show to the user
+							the book is updating
+						*/ }
 						{book.isUpdating && <Loader />}
 						{BookUtils.getCover(book, this.props.showShelf)}
 						<SelectInput
@@ -61,35 +65,9 @@ class Book extends Component {
 						)}
 				</div>
 				{this.state.showMore && (
-					<div
-						className="book-modal"
-						onClick={e => this.closeModal(e)}>
-						<div className="modal-content">
-							<div className="book-modal-title">
-								{BookUtils.getNode(book, 'title')}
-							</div>
-							<div>
-								<u>DESCRIPTION:</u>
-								{BookUtils.getNode(book, 'description')} <br />
-							</div>
-							{book.publishedDate && (
-								<div>
-									<u>PUBLISHED DATE:</u>
-									{BookUtils.getNode(
-										book,
-										'publishedDate'
-									)}
-									<br />
-								</div>
-							)}
-							{book.averageRating && (
-								<div>
-									<u>AVERAGE RATING:</u>
-									{BookUtils.getNode(book, 'averageRating')}
-								</div>
-							)}
-						</div>
-					</div>
+					<BookModal
+						book={book}
+						closeModal={this.closeModal} />
 				)}
 			</li>
 		);

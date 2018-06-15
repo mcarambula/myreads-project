@@ -13,6 +13,7 @@ class BooksApp extends React.Component {
 		loading: true
 	}
 	componentDidMount() {
+		/* Getting the books */
 		BooksAPI.getAll().then(books => {
 			this.setState(() => ({
 				books,
@@ -20,6 +21,7 @@ class BooksApp extends React.Component {
 			}));
 		});
 	}
+	/* Allows to update a shelf's book on the main page */
 	updateBookShelf = (book, shelf) => {
 		const books = [...this.state.books];
 		const index = books.findIndex(el => el.id === book.id);
@@ -39,11 +41,13 @@ class BooksApp extends React.Component {
 				this.setState({ books });
 			});
 	}
+	/* Allows to move a searched book to the shelf */
 	moveBook = (book, shelf) => {
 		this.setState(prevState => ({
 			books: prevState.books.filter(b => b.id !== book.id).concat([book])
 		}));
 	}
+	/* Will determinate the route given the path */
 	getRoute = state => {
 		return (
 			<Switch>
@@ -82,7 +86,7 @@ class BooksApp extends React.Component {
 			<div className="app">
 				<div className="list-books">
 					<div className="list-books-title">
-						<h1>MyReads</h1>
+						<h1>My Reads App</h1>
 					</div>
 					<div className="list-books-content">
 						{this.getRoute(this.state)}
