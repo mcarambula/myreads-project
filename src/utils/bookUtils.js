@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { coverShelves } from '../data/bookShelves';
 
 const truncate = (string, length = 25) => {
@@ -27,13 +26,7 @@ export function getCover(book, showShelf) {
 		? `url(${book.imageLinks.smallThumbnail})`
 		: null;
 	return (
-		<Link
-			to={{
-				pathname: '/detail',
-				state: {
-					book
-				}
-			}}
+		<div
 			className="book-cover"
 			style={{ width: 128, height: 193, backgroundImage: image }}>
 			{showShelf &&
@@ -43,7 +36,7 @@ export function getCover(book, showShelf) {
 						{coverShelves[book.shelf]}
 					</div>
 				)}
-		</Link>
+		</div>
 	);
 }
 
