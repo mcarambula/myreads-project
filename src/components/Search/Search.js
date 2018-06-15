@@ -15,12 +15,14 @@ class Search extends Component {
 	static defaultProps = {
 		booksOnShelf: [],
 		updateBookShelf: () => {},
-		moveBook: () => {}
+		moveBook: () => {},
+		showError: () => {}
 	}
 	static propTypes = {
 		booksOnShelf: PropTypes.array.isRequired,
 		updateBookShelf: PropTypes.func.isRequired,
 		moveBook: PropTypes.func.isRequired,
+		showError: PropTypes.func,
 	}
 	/*
 		This function will search the book given the query
@@ -53,8 +55,10 @@ class Search extends Component {
 			})
 			.catch(e => {
 				this.setState(() => ({
-					searchedBooks: []
+					searchedBooks: [],
+					loading: false
 				}));
+				this.props.showError();
 			});
 	}
 	/* Clean the search after user interaction */
@@ -82,6 +86,7 @@ class Search extends Component {
 				/* Show an error */
 				searchedBooks[index].isUpdating = false;
 				this.setState({ searchedBooks });
+				this.props.showError();
 			});
 	}
 	render() {

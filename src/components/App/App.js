@@ -10,7 +10,8 @@ class BooksApp extends React.Component {
 	state = {
 		books: [],
 		searchedBooks: [],
-		loading: true
+		loading: true,
+		error: false
 	};
 	componentDidMount() {
 		/* Getting the books */
@@ -24,7 +25,8 @@ class BooksApp extends React.Component {
 			.catch(e => {
 				this.setState(() => ({
 					books: [],
-					loading: false
+					loading: false,
+					error: true
 				}));
 			});
 	}
@@ -43,9 +45,11 @@ class BooksApp extends React.Component {
 				this.setState({ books });
 			})
 			.catch(error => {
-				/* Show an error */
 				books[index].isUpdating = false;
-				this.setState({ books });
+				this.setState({
+					books,
+					error: true
+				});
 			});
 	};
 	/* Allows to move a searched book to the shelf */
@@ -53,7 +57,10 @@ class BooksApp extends React.Component {
 		this.setState(prevState => ({
 			books: prevState.books.filter(b => b.id !== book.id).concat([book])
 		}));
-	};
+	}
+	showError = () => {
+		this.setState({error: true});
+	}
 	/* Will determinate the route given the path */
 	getRoute = state => {
 		return (
@@ -77,6 +84,7 @@ class BooksApp extends React.Component {
 							booksOnShelf={state.books}
 							updateBookShelf={this.updateBookShelf}
 							moveBook={this.moveBook}
+							showError={this.showError}
 						/>
 					)}
 				/>
@@ -90,9 +98,15 @@ class BooksApp extends React.Component {
 					<div className="list-books-title">
 						<h1>My Reads App</h1>
 					</div>
+					{this.state.error &&
+						<div className="error-container">
+							<div>An error has occurred. Please try later.</div>
+						</div>
+					}
 					<div className="list-books-content">
 						{this.getRoute(this.state)}
 					</div>
+					}
 				</div>
 			</div>
 		);
