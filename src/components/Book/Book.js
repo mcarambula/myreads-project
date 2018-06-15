@@ -37,6 +37,7 @@ class Book extends Component {
 	}
 	render() {
 		const { book } = this.props;
+		console.log(book.authors);
 		return (
 			<li>
 				<div className='book'>
@@ -55,8 +56,8 @@ class Book extends Component {
 					</div>
 					{BookUtils.getNode(book, 'title', true)}
 					{BookUtils.getAuthors(book)}
-					{book.description &&
-						book.description.length > 0 && (
+					{ ((book.description && book.description.length !== '')
+						|| (book.authors && book.authors.length > 0)) && (
 							<a
 								onClick={e => this.showMore(e)}
 								className="more-description">

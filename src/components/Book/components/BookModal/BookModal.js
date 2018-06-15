@@ -21,6 +21,10 @@ const BookModal = props => {
 					<u>DESCRIPTION:</u>
 					{BookUtils.getNode(book, 'description')} <br />
 				</div>
+				<div>
+					<u>AUTHOR(S):</u>
+					{BookUtils.getAuthors(book, false)}<br />
+				</div>
 				{book.publishedDate && (
 					<div>
 						<u>PUBLISHED DATE:</u>
