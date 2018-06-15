@@ -1,6 +1,6 @@
 # MyReads Project
 
-This repository contains my implementation of MyReads app (first assessment project for the Udacity's React Fundamentals course).
+This repository contains my implementation of MyReads app (first assessment project for the [Udacity React Nanodegree Program](https://www.udacity.com/course/react-nanodegree--nd019)).
 
 This project is a bookshelf app that allows user to categorize books they are currently reading, want to read or they have read.
 
