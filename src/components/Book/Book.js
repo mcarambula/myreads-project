@@ -65,21 +65,29 @@ class Book extends Component {
 						className="book-modal"
 						onClick={e => this.closeModal(e)}>
 						<div className="modal-content">
-							<div className="book-modal-title">{BookUtils.getNode(book, 'title')}</div>
-							<div>
-								<u>DESCRIPTION:</u> {BookUtils.getNode(book, 'description')} <br/>
+							<div className="book-modal-title">
+								{BookUtils.getNode(book, 'title')}
 							</div>
-							{ book.publishedDate &&
+							<div>
+								<u>DESCRIPTION:</u>
+								{BookUtils.getNode(book, 'description')} <br />
+							</div>
+							{book.publishedDate && (
 								<div>
-
-									<u>PUBLISHED DATE:</u>{BookUtils.getNode(book, 'publishedDate')} <br/>
+									<u>PUBLISHED DATE:</u>
+									{BookUtils.getNode(
+										book,
+										'publishedDate'
+									)}
+									<br />
 								</div>
-							}
-							{ book.averageRating &&
+							)}
+							{book.averageRating && (
 								<div>
-									<u>AVERAGE RATING:</u>{BookUtils.getNode(book, 'averageRating')}
+									<u>AVERAGE RATING:</u>
+									{BookUtils.getNode(book, 'averageRating')}
 								</div>
-							}
+							)}
 						</div>
 					</div>
 				)}

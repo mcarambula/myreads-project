@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 import BooksGrid from '../BooksGrid/BooksGrid';
 import './BookShelf.css';
 
@@ -28,7 +29,10 @@ class BookShelf extends Component {
 									{this.renderHowMany(length)}
 								</h2>
 								{this.props.loading ? (
-									<div>Loading ...</div>
+									<div className="loading">
+										<Loader section="search" />
+										Loading books..
+									</div>
 								) : length > 0 ? (
 									<BooksGrid
 										books={filteredBooks}
