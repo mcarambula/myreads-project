@@ -22,6 +22,7 @@ class Search extends Component {
 		const cleaned = search.trim();
 		this.setState({ search });
 		if (cleaned === '') {
+			//clean the search
 			this.props.cleanSearch('');
 			return;
 		}

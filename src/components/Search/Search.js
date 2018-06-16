@@ -61,11 +61,13 @@ class Search extends Component {
 				this.props.showError();
 			});
 	}
-	/* Clean the search after user interaction */
+	/* Clean searched books */
 	cleanSearch = () => {
-		this.setState(() => ({
-			searchedBooks: []
-		}));
+		/* Check if the clean is really necessary */
+		if (this.state.searchedBooks.length > 0 ) {
+			this.setState(() => ({searchedBooks: []}));
+		}
+		return true;
 	}
 	updateBook = (book, shelf) => {
 		const searchedBooks = [...this.state.searchedBooks];
