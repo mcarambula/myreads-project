@@ -21,11 +21,6 @@ class Search extends Component {
 		const search = e.target.value;
 		const cleaned = search.trim();
 		this.setState({ search });
-		if (cleaned === '') {
-			//clean the search
-			this.props.cleanSearch('');
-			return;
-		}
 		this.props.onSearchBooks(cleaned);
 	}
 	cleanInput = e => {

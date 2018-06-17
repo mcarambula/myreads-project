@@ -9,6 +9,7 @@ import './Search.css';
 
 class Search extends Component {
 	state = {
+		search: '',
 		searchedBooks: [],
 		loading: false
 	}
@@ -30,43 +31,50 @@ class Search extends Component {
 		they already are in a specific shelf
 	*/
 	onSearchBooks = query => {
-		this.setState(() => ({ loading: true }));
-		BooksAPI.search(query)
-			.then(searchedBooks => {
-				let updatedBooks = [];
-				if (!searchedBooks.error) {
-					/* Adding the shelf value on the books returned on the search */
-					updatedBooks = searchedBooks.map(book => {
-						/* Find the book */
-						const bAux =
-							this.props.booksOnShelf.filter(
-								b => b.id === book.id
-							)[0] || {};
-						if (bAux.shelf !== undefined) {
-							book.shelf = bAux.shelf;
-						}
-						return book;
-					});
-				}
-				this.setState(() => ({
-					searchedBooks: updatedBooks,
-					loading: false
-				}));
-			})
-			.catch(e => {
-				this.setState(() => ({
-					searchedBooks: [],
-					loading: false
-				}));
-				this.props.showError();
-			});
+		if (query === '') {
+			this.setState({search: '', searchedBooks: [], loading: false });
+			return;
+		}
+		/* Wait until the state is updating to make the call to the API */
+		this.setState({ loading: true, search: query }, () => {
+			BooksAPI.search(query)
+				.then(searchedBooks => {
+					/* Cancel the process if the query changes while the request was in process */
+					if (query !== this.state.search) return;
+					let updatedBooks = [];
+					if (!searchedBooks.error) {
+						/* Adding the shelf value on the books returned on the search */
+						updatedBooks = searchedBooks.map(book => {
+							/* Find the book */
+							const bAux =
+								this.props.booksOnShelf.filter(
+									b => b.id === book.id
+								)[0] || {};
+							if (bAux.shelf !== undefined) {
+								book.shelf = bAux.shelf;
+							}
+							return book;
+						});
+					}
+					this.setState(() => ({
+						search: query,
+						searchedBooks: updatedBooks,
+						loading: false
+					}));
+				})
+				.catch(e => {
+					this.setState(() => ({
+						searchedBooks: [],
+						loading: false
+					}));
+					this.props.showError();
+				});
+			}
+		);
 	}
 	/* Clean searched books */
 	cleanSearch = () => {
-		/* Check if the clean is really necessary */
-		if (this.state.searchedBooks.length > 0 ) {
-			this.setState(() => ({searchedBooks: []}));
-		}
+		this.setState(() => ( {searchedBooks: []} ));
 		return true;
 	}
 	updateBook = (book, shelf) => {
