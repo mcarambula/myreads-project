@@ -4,6 +4,10 @@ This repository contains my implementation of MyReads app (first assessment proj
 
 This project is a bookshelf app that allows users to categorize books they are currently reading, want to read or they have read.
 
+#Demo
+
+You can check demo online [HERE](http://mc2ion.info/my-reads/)
+
 ## Getting started
 
 ### Step 1:

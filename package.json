@@ -1,5 +1,7 @@
 {
-  "dependencies": {
+    "name": "my-reads",
+    "homepage" : "http://mc2ion.info/my-reads",
+    "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
